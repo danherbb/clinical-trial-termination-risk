@@ -1,0 +1,9 @@
+# data (do not commit large files)
+data/raw/
+
+# python cache
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
