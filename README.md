@@ -13,5 +13,5 @@ pip install -r requirements.txt
 ```
 
 ```bash
-python -m pip --format=freeze > requirements.txt
+python -m pip list --format=freeze > requirements.txt
 ```
