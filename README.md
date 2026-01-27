@@ -77,7 +77,18 @@ You should then be ready to first run `feature_engineering.ipynb`, which will ex
 - Uses monthly snapshot from AACT database and therefore does not incorporate new trials in AACT database automatically
 - There could potentially be more useful features that were not incorporated into the dataset such as conditions studied
 
+## Technologies Used
+
+- Python, Pandas
+- Scikit-learn
+- Git / GitHub
+- [AACT Database](https://aact.ctti-clinicaltrials.org/)
+
 ## Future Improvements
 
 - Improve feature engineering by grouping conditions into a usable number of categories and then retraining model and analyzing for improvement
 - Integrate the daily updated AACT database with PostgreSQL instead of downloading a snapshot manually.
+
+---
+### Author
+Daniel De Oliveira | [LinkedIn](https://www.linkedin.com/in/daniel-oliveira-ds/) | [GitHub](github.com/danherbb)
