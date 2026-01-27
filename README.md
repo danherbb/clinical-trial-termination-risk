@@ -50,8 +50,8 @@ git clone https://github.com/danherbb/clinical-trial-termination-risk.git
 ```
 Then create a `data/raw` directory which will contain the AACT tables as flat text files.
 ```bash
-cd clinical-trial-termination-risk
-mkdir data/raw
+cd clinical-trial-termination-risk/data
+mkdir raw
 ```
 Further instructions for downloading the relevant files can be found in `data/README.md`. Complete those instructions before continuing.
 

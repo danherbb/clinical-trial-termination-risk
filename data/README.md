@@ -6,7 +6,7 @@ The data used for this project come from the December snapshot of the AACT datab
 
 ## Reproducibility
 
-Unzip downloaded file and place all files in a directory named `data/raw/`
+Unzip downloaded file and place all files in the directory `data/raw/`
 
 ## Schema
 
