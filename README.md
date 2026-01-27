@@ -4,7 +4,7 @@ In this project, I used publicly available information on clinical trials to tra
 
 ## Data Used
 
-Data was taken from the AACT database which is publicly available and updated from studies registered in ClinicalTrials.gov regularly. Using data directly from ClinicalTrials.gov was originally considered but the AACT database was ultimately chosen for ease of reproducibility and its organization of information into separate tables which made data exploration and feature engineering easier. Descriptions of each table in the database can be found in the `aact_tables.xlsx` file, and further information regarding the columns within each table can be found on the AACT website [here](https://aact.ctti-clinicaltrials.org/documentation).
+Data was taken from the AACT database which is publicly available and updated from studies registered in ClinicalTrials.gov regularly. Using data directly from ClinicalTrials.gov was originally considered but the AACT database was ultimately chosen for ease of reproducibility and data exploration. Descriptions of each table in the database can be found in `data/aact_tables.xlsx`, and further information regarding the columns within each table can be found on the AACT website [here](https://aact.ctti-clinicaltrials.org/documentation).
 
 The training target chosen was `overall_status`, found in the `studies` table. In order to train models for a binary outcome, only trials that were either 'COMPLETED' or 'TERMINATED' were chosen for the dataset. This excludes any ongoing trials, suspended trials that may resume, and trials that are registered but haven't began. The `feature_engineering.ipynb` notebook contains a list of the final feature set. The final dataset contained 338,720 total samples which had a termination rate of ~9.6%.
 
@@ -14,7 +14,7 @@ Instructions for downloading the data and where to place it to reproduce the res
 
 ### Preprocessing
 
-Numerical and categorical features were separated. Heavy tailed features within the numerical features were identified by comparing the 0.95, 0.99, and 1.00 quantiles and then separated into a different preprocessing pipeline. Categorical preprocessing mainly consisted of one hot encoding.
+Numerical and categorical features were separated. Heavy tailed features within the numerical features were identified by comparing the 0.95, 0.99, and 1.00 quantiles and then separated into a different preprocessing pipeline. Typical imputation and scaling was done for numerical features. Categorical preprocessing mainly consisted of one hot encoding.
 
 ### Modeling
 
@@ -23,10 +23,10 @@ Two dummy models were used for comparison to ensure that models trained were rec
 ## Results
 
 ### Average Precision (PR-AUC) & ROC-AUC
-ROC-AUC of ~-.7330 and PR-AUC (AP) of ~0.2380 when evaluated on test data. PR-AUC is ~2.49 times greater than prevalence (dashed horizontal line on PR curve).
+ROC-AUC of ~0.7330 and PR-AUC (AP) of ~0.2380 when evaluated on test data. PR-AUC is ~2.49 times greater than prevalence (dashed horizontal line on PR curve).
 
-![PR curve for final model with scoring metrics given](pr_curve.png)
-*PR curve for final model (HGB) with scoring metrics given*
+![PR curve for final model with scoring metrics given](pr_curve.png)\
+*PR curve for final model (HGB) with scoring metrics given.*
 
 ### Ranking Utility (Top-K Lift)
 To evaluate the model's utility in ranking trials based on their risk of terminating, Top-K Lift was used.
@@ -38,7 +38,7 @@ To evaluate the model's utility in ranking trials based on their risk of termina
 |10|0.271138|2.833868|
 |20|0.221068|2.310541|
 
-![Lift curve](klift.png)
+![Lift curve](klift.png)\
 *Lift curve for final model. To show model's ranking utility, dashed line at y=1.0 represents baseline.*
 
 
@@ -55,7 +55,7 @@ mkdir data/raw
 ```
 Further instructions for downloading the relevant files can be found in `data/README.md`. Complete those instructions before continuing.
 
-It is reccommended to use a conda environment to prevent issues due to dependencies or requirements. The python version used for this project is 3.11
+It is reccommended to use a conda environment to prevent issues due to dependencies. The python version used for this project is 3.11
 ```bash
 conda create --name term-risk-ml python=3.11
 conda activate term-risk-ml
