@@ -4,7 +4,7 @@ In this project, a model is trained which uses publicly available information ab
 
 ## Data Used
 
-The AACT database 
+Data was taken from the AACT database. Data from AACT is publicly available and updated from studies registered in ClinicalTrials.gov regularly. Using data directly from ClinicalTrials.gov was originally considered but the AACT database was ultimately chosen for ease of reproducibility and its organization of infromation into separate tables which made data exploration and feature engineering more manageable.
 
 [aact database schema](https://aact.ctti-clinicaltrials.org/schema)
 
