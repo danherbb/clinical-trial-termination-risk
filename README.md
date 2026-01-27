@@ -62,7 +62,7 @@ conda activate term-risk-ml
 pip install -r requirments.txt
 ```
 
-You should then be ready to first run `feature_engineering.ipynb`, which will export the dataset as `data/processed/model_data.csv`, and then run `modeling.ipynb`, which will train and evaluate the model. Note that cell 8, which performs the RandomizedSearch of hyperparameters will likely take more than 5 minutes to run. Since no parameter tweaking ultimately made it to the final model in this project, it is possible to skip that cell by running all other cells individually instead of running the entire notebook.
+You should then be ready to first run `feature_engineering.ipynb`, which will export the dataset as `data/processed/model_data.csv`, and then run `modeling.ipynb`, which will train and evaluate the model. Note that performing the randomized search of hyperparameters will likely take more than 5 minutes to run.
 
 ## Model Limitations
 
