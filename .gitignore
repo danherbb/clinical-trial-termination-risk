@@ -1,5 +1,6 @@
 # data (do not commit large files)
 data/raw/
+data/processed
 
 # python cache
 __pycache__/
