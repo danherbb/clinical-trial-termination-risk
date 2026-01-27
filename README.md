@@ -23,43 +23,49 @@ Two dummy models were used for comparison to ensure that models trained were rec
 ## Results
 
 ### Average Precision (PR-AUC) & ROC-AUC
+
 ROC-AUC of ~0.7330 and PR-AUC (AP) of ~0.2380 when evaluated on test data. PR-AUC is ~2.49 times greater than prevalence (dashed horizontal line on PR curve).
 
-![PR curve for final model with scoring metrics given](pr_curve.png)\
+![PR curve for final model with scoring metrics given](pr_curve.png)
 *PR curve for final model (HGB) with scoring metrics given.*
 
 ### Ranking Utility (Top-K Lift)
+
 To evaluate the model's utility in ranking trials based on their risk of terminating, Top-K Lift was used.
 
-|k(%)|Termination rate in top-k%|Lift@k|
-|:---|:---:|---:|
-|1|0.440898|4.608155|
-|5|0.328767|3.436189|
-|10|0.271138|2.833868|
-|20|0.221068|2.310541|
+| k(%) | Termination rate in top-k% |   Lift@k |
+| :--- | :------------------------: | -------: |
+| 1    |          0.440898          | 4.608155 |
+| 5    |          0.328767          | 3.436189 |
+| 10   |          0.271138          | 2.833868 |
+| 20   |          0.221068          | 2.310541 |
 
-![Lift curve](klift.png)\
+![Lift curve](klift.png)
 *Lift curve for final model. To show model's ranking utility, dashed line at y=1.0 represents baseline.*
-
 
 ## Reproducibility
 
 To reproduce the results of this project first clone the repository while in the directory you would like the project folder to be in.
+
 ```bash
 git clone https://github.com/danherbb/clinical-trial-termination-risk.git
 ```
+
 Then create a `data/raw` directory which will contain the AACT tables as flat text files.
+
 ```bash
 cd clinical-trial-termination-risk/data
 mkdir raw
 ```
+
 Further instructions for downloading the relevant files can be found in `data/README.md`. Complete those instructions before continuing.
 
 It is reccommended to use a conda environment to prevent issues due to dependencies. The python version used for this project is 3.11
+
 ```bash
 conda create --name term-risk-ml python=3.11
 conda activate term-risk-ml
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 
 You should then be ready to first run `feature_engineering.ipynb`, which will export the dataset as `data/processed/model_data.csv`, and then run `modeling.ipynb`, which will train and evaluate the model. Note that performing the randomized search of hyperparameters will likely take more than 5 minutes to run.
