@@ -1,6 +1,9 @@
+.ipynb_checkpoints
+.vscode/
+
 # data (do not commit large files)
 data/raw/
-data/processed
+data/processed/
 
 # python cache
 __pycache__/
